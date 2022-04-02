@@ -35,8 +35,8 @@ exports.loginpost = async (req, res) => {
     if (!validPassword) return res.status(400).json({error: 'contraseña inválida' });
 
     // create token, pero tenemos que volver esto en funcion
-    const access_token = jwt.sign({first_name: user.first_name, _id: user._id}, ACCESS_TOKEN, {expiresIn : TIME_AT})
-    const refresh_token = jwt.sign({first_name: user.first_name, _id: user._id}, REFRESH_TOKEN, {expiresIn : TIME_RT})
+    const access_token = jwt.sign({first_name: user.first_name, _id: user._id}, gitACCESS_TOKEN, {expiresIn : (TIME_AT)})
+    const refresh_token = jwt.sign({first_name: user.first_name, _id: user._id}, REFRESH_TOKEN, {expiresIn : (TIME_RT)})
     //const user_login = ({first_name: user.first_name, last_name: user.last_name, _id: user._id})
     
     res.header({
